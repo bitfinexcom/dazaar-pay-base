@@ -1,0 +1,18 @@
+{
+  "name": "hypermarket-pay-base",
+  "version": "0.0.1",
+  "description": "Base payment module for HyperMarket",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitfinexcom/hypermarket-pay-base.git"
+  },
+  "author": "Paolo Ardoino",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/bitfinexcom/hypermarket-pay-base/issues"
+  },
+  "homepage": "https://github.com/bitfinexcom/hypermarket-pay-base"
+}
