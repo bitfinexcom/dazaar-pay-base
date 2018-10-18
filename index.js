@@ -8,7 +8,7 @@ class PayBase {
   }
 
   getConf () {
-    return this_.conf
+    return this._conf
   }
 
   async init (opts = {}, cb) {
