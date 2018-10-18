@@ -31,3 +31,5 @@ class PayBase {
     })
   }
 }
+
+module.exports = PayBase
