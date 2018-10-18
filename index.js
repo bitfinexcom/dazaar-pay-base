@@ -11,9 +11,23 @@ class PayBase {
     return this_.conf
   }
 
-  init (opts = {}, cb) {
-    cb()
+  async init (opts = {}, cb) {
+    new Promise((resolve, reject) => {
+      resolve(true)
+
+      if (cb) {
+        return cb(null, true)
+      }
+    })
   }
 
-  async validate (data, cb) {}
+  async validate (data, cb) {
+    new Promise((resolve, reject) => {
+      resolve(true)
+
+      if (cb) {
+        return cb(null, true)
+      }
+    })
+  }
 }
