@@ -1,7 +1,8 @@
+const _ = require('lodash')
+
 class PayBase {
   constructor (conf) {
     this._reqs = {}
-    this._mem = {}
 
     this.setConf(conf)
   }
@@ -56,6 +57,22 @@ class PayBase {
       }
     })
   }
+
+  refresh () {
+    if (this._refreshing) {
+      return
+    }
+
+    this._refreshing = true
+
+    _.each(this._reqs, async (v, k) => {
+      await this.refreshTransactions(v)
+    })
+
+    this._refreshing = false
+  }
+
+  refreshTransactions (req) {}
 }
 
 module.exports = PayBase
