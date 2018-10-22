@@ -1,5 +1,7 @@
 class PayBase {
   constructor (conf) {
+    this._reqs = {}
+
     this.setConf(conf)
   }
 
@@ -9,6 +11,18 @@ class PayBase {
 
   getConf () {
     return this._conf
+  }
+
+  addReq (k, v) {
+    this._reqs[k] = v
+  }
+
+  delReq (k) {
+    delete this._reqs[k]
+  }
+
+  getReq (k) {
+    return this._reqs[k]
   }
 
   async init (opts = {}, cb) {
@@ -21,8 +35,19 @@ class PayBase {
     })
   }
 
-  async validate (data, cb) {
+  async validate (k, cb) {
     new Promise((resolve, reject) => {
+      if (!this.getReq(k)) {
+        const err = new Error('ERR_PAY_BASE_REQ_INVALID')
+        reject(err)
+
+        if (cb) {
+          return cb(err)
+        }
+
+        return
+      }
+
       resolve(true)
 
       if (cb) {
