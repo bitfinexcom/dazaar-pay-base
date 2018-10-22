@@ -1,6 +1,7 @@
 class PayBase {
   constructor (conf) {
     this._reqs = {}
+    this._mem = {}
 
     this.setConf(conf)
   }
