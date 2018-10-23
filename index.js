@@ -37,11 +37,34 @@ class PayBase {
     })
   }
 
+  async pay (k, cb) {
+    new Promise((resolve, reject) => {
+      const sub = this.getSub(k)
+
+      if (!sub || sub.dir !== 'bid') {
+        const err = new Error('HM_PAY_BASE_SUB_INVALID')
+        reject(err)
+
+        if (cb) {
+          return cb(err)
+        }
+
+        return
+      }
+
+      resolve(true)
+
+      if (cb) {
+        return cb(null, true)
+      }
+    })
+  }
+
   async validate (k, cb) {
     new Promise((resolve, reject) => {
       const sub = this.getSub(k)
 
-      if (!sub || sub.dir !== 'sub') {
+      if (!sub || sub.dir !== 'ask') {
         const err = new Error('HM_PAY_BASE_SUB_INVALID')
         reject(err)
 
