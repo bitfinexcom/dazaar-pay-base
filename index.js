@@ -2,7 +2,7 @@ const _ = require('lodash')
 
 class PayBase {
   constructor (conf) {
-    this._reqs = {}
+    this._subs = {}
 
     this.setConf(conf)
   }
@@ -15,16 +15,16 @@ class PayBase {
     return this._conf
   }
 
-  addReq (k, v) {
-    this._reqs[k] = v
+  addSub (k, v) {
+    this._subs[k] = v
   }
 
-  delReq (k) {
-    delete this._reqs[k]
+  delSub (k) {
+    delete this._subs[k]
   }
 
-  getReq (k) {
-    return this._reqs[k]
+  getSub (k) {
+    return this._subs[k]
   }
 
   async init (opts = {}, cb) {
@@ -39,8 +39,8 @@ class PayBase {
 
   async validate (k, cb) {
     new Promise((resolve, reject) => {
-      if (!this.getReq(k)) {
-        const err = new Error('ERR_PAY_BASE_REQ_INVALID')
+      if (!this.getSub(k)) {
+        const err = new Error('ERR_PAY_BASE_SUB_INVALID')
         reject(err)
 
         if (cb) {
@@ -65,14 +65,14 @@ class PayBase {
 
     this._refreshing = true
 
-    _.each(this._reqs, async (v, k) => {
+    _.each(this._subs, async (v, k) => {
       await this.refreshTransactions(v)
     })
 
     this._refreshing = false
   }
 
-  refreshTransactions (req) {}
+  refreshTransactions (sub) {}
 }
 
 module.exports = PayBase
