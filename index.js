@@ -39,7 +39,9 @@ class PayBase {
 
   async validate (k, cb) {
     new Promise((resolve, reject) => {
-      if (!this.getSub(k)) {
+      const sub = this.getSub(k)
+
+      if (!sub || sub.dir !== 'sub') {
         const err = new Error('HM_PAY_BASE_SUB_INVALID')
         reject(err)
 
