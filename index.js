@@ -28,7 +28,7 @@ class PayBase {
   }
 
   async init (opts = {}, cb) {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       resolve(true)
 
       if (cb) {
@@ -38,11 +38,11 @@ class PayBase {
   }
 
   async pay (k, cb) {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       const sub = this.getSub(k)
 
       if (!sub || sub.dir !== 'bid') {
-        const err = new Error('HM_PAY_BASE_SUB_INVALID')
+        const err = new Error('DPAY_BASE_SUB_INVALID')
         reject(err)
 
         if (cb) {
@@ -61,11 +61,11 @@ class PayBase {
   }
 
   async validate (k, cb) {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       const sub = this.getSub(k)
 
       if (!sub || sub.dir !== 'ask') {
-        const err = new Error('HM_PAY_BASE_SUB_INVALID')
+        const err = new Error('DPAY_BASE_SUB_INVALID')
         reject(err)
 
         if (cb) {

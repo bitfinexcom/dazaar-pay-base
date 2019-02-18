@@ -1,1 +1,1 @@
-# hypermarket-pay-base
+# dazaar-pay-base

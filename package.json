@@ -1,18 +1,14 @@
 {
-  "name": "hypermarket-pay-base",
+  "name": "dazaar-pay-base",
   "version": "0.0.1",
-  "description": "Base payment module for HyperMarket",
+  "description": "Base payment module for dazaar",
   "main": "index.js",
   "dependencies": {
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitfinexcom/hypermarket-pay-base.git"
+    "url": "https://github.com/bitfinexcom/dazaar-pay-base.git"
   },
   "author": "Paolo Ardoino",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/bitfinexcom/hypermarket-pay-base/issues"
-  },
-  "homepage": "https://github.com/bitfinexcom/hypermarket-pay-base"
+  "license": "Apache-2.0"
 }
