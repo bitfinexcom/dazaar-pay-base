@@ -42,7 +42,7 @@ class PayBase {
       const sub = this.getSub(k)
 
       if (!sub || sub.dir !== 'bid') {
-        const err = new Error('HM_PAY_BASE_SUB_INVALID')
+        const err = new Error('DPAY_BASE_SUB_INVALID')
         reject(err)
 
         if (cb) {
@@ -65,7 +65,7 @@ class PayBase {
       const sub = this.getSub(k)
 
       if (!sub || sub.dir !== 'ask') {
-        const err = new Error('HM_PAY_BASE_SUB_INVALID')
+        const err = new Error('DPAY_BASE_SUB_INVALID')
         reject(err)
 
         if (cb) {
