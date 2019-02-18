@@ -28,7 +28,7 @@ class PayBase {
   }
 
   async init (opts = {}, cb) {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       resolve(true)
 
       if (cb) {
@@ -38,7 +38,7 @@ class PayBase {
   }
 
   async pay (k, cb) {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       const sub = this.getSub(k)
 
       if (!sub || sub.dir !== 'bid') {
@@ -61,7 +61,7 @@ class PayBase {
   }
 
   async validate (k, cb) {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       const sub = this.getSub(k)
 
       if (!sub || sub.dir !== 'ask') {
